@@ -17,7 +17,7 @@ body {
     background-color: #161616;
 
     border-radius: 20px;
-    height: 60%;
+    height: max-content;
     width: 30%;
 
     display: flex;
@@ -30,11 +30,38 @@ body {
     display: flex;
     flex-direction: column;
 
-    width: 100%;
+    width: 90%;
+    padding: 10px;
+}
+
+input {
+    background-color: #161616;
+    border: none;
+    outline: none;
+
+    color: white;
+
+    text-align: right;
+    padding-right: 30px;
+}
+
+input::placeholder {
+    color: white;
+}
+
+#ans-display {
+    font-size: 4rem;
+}
+
+#eq-display {
+    font-size: 1.5rem;
+    padding-right: 35px;
+
+    margin-top: 10px;
 }
 
 .buttons {
-    margin-top: 20px;
+    margin: 20px 0;
 
     display: grid;
     grid-template-columns: repeat(5, 1fr);
