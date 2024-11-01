@@ -7,7 +7,7 @@ function append(input) {
 
 function clearDis() {
     ansDisplay.value = "";
-
+    eqDisplay.value = "";
 }
 
 function delChar() {
