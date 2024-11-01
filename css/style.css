@@ -42,7 +42,7 @@ input {
     color: white;
 
     text-align: right;
-    padding-right: 30px;
+    padding-right: 10px;
 }
 
 input::placeholder {
@@ -55,7 +55,7 @@ input::placeholder {
 
 #eq-display {
     font-size: 1.5rem;
-    padding-right: 35px;
+    padding-right: 15px;
 
     margin-top: 10px;
 }
