@@ -51,14 +51,38 @@ body {
     color: white;
 
     font-size: 1.5rem;
+    cursor: pointer;
+}
+.buttons button:hover {
+    background-color: hsl(0, 0%, 21%);
+}
+
+.buttons button:active {
+    background-color: hsl(0, 0%, 31%);
 }
 
 #grey-btn {
     background-color: #555;
 }
 
+#grey-btn:hover {
+    background-color: hsl(0, 0%, 43%);
+}
+
+#grey-btn:active {
+    background-color: hsl(0, 0%, 53%);
+}
+
 #orange-btn {
     background-color: #ffa500;
+}
+
+#orange-btn:hover {
+    background-color: hsl(39, 100%, 60%);
+}
+
+#orange-btn:active {
+    background-color: hsl(39, 100%, 70%);
 }
 
 #eq-btn {
