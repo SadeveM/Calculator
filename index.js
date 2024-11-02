@@ -61,6 +61,7 @@ backspaceBtn.addEventListener("click", () => {
 
 document.addEventListener("keydown", (event) => {
     for (let button of buttons) {
+        button.blur();
         if (button.classList.contains(event.key)) {
             button.click();
         }
