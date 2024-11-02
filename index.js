@@ -27,7 +27,7 @@ function delChar() {
         ansDisplay.value = display;
     } else {
         display = display.slice(0, -1);
-        ansDisplay.value = display;
+        ansDisplay.value = display.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,");
     }
 }
 
