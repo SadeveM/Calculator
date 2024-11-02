@@ -1,8 +1,10 @@
 const eqDisplay = document.querySelector("#eq-display")
 const ansDisplay = document.querySelector("#ans-display");
 const buttons = document.querySelectorAll("button");
+const backspaceBtn = document.querySelector(".Backspace")
 
 function append(input) {
+    backspaceBtn.onclick = delChar;
     let display = ansDisplay.value;
     if (display == "ERROR" || display == "Infinity"){
         ansDisplay.value = "";
@@ -24,6 +26,16 @@ function delChar() {
     }
 }
 
+function delAnsDis() {
+    ansDisplay.value = "";
+    backspaceBtn.onclick = delEqDis;
+}
+
+function delEqDis() {
+    eqDisplay.value = "";
+    backspaceBtn.onclick = delChar;
+}
+
 function calc() {
     let display = ansDisplay.value;
     let newDisplay = display.replace("÷", "/").replace("×", "*");
@@ -37,7 +49,15 @@ function calc() {
     } catch(error) {
         ansDisplay.value = "ERROR"
     }
+
+    backspaceBtn.onclick = delAnsDis;
 }
+
+backspaceBtn.addEventListener("click", () => {
+    if (ansDisplay.value == "") {
+        backspaceBtn.onclick = delEqDis;
+    }
+})
 
 document.addEventListener("keydown", (event) => {
     for (let button of buttons) {
