@@ -119,3 +119,24 @@ input::placeholder {
     grid-column: 4/6;
     width: 130px;
 }
+
+@media (max-width:450px) {
+    .calculator {
+        width: 330px;
+    }
+
+    .buttons {
+        grid-template-columns: repeat(5, 0.3fr);
+        gap: 5px;
+    }
+    
+    .buttons button {
+        height: 50px;
+        width: 50px;
+    }
+
+    #eq-btn {
+        grid-column: 4/6;
+        width: 110px;
+    }
+}
