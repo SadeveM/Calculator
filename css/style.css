@@ -108,15 +108,16 @@ input::placeholder {
     background-color: #ffa500;
 }
 
-#orange-btn:hover {
+#eq-btn:hover , #orange-btn:hover {
     background-color: hsl(39, 100%, 60%);
 }
 
-#orange-btn:active {
+#eq-btn:active , #orange-btn:active {
     background-color: hsl(39, 100%, 70%);
 }
 
 #eq-btn {
+    background-color: #ffa500;
     grid-column: 4/6;
     width: 130px;
 }
