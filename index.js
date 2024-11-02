@@ -44,7 +44,6 @@ function delEqDis() {
 
 function calc() {
     let newDisplay = display.replace("÷", "/").replace("×", "*").replace(",", "");
-    console.log(newDisplay)
     if (display == "") {
         return;
     }
@@ -52,7 +51,7 @@ function calc() {
     try {
         display = eval(newDisplay)
         eqDisplay.value = ansDisplay.value;
-        ansDisplay.value = display;
+        ansDisplay.value = display.toString().replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,");
     } catch(error) {
         ansDisplay.value = "ERROR"
     }
