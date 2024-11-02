@@ -1,5 +1,6 @@
 const eqDisplay = document.querySelector("#eq-display")
 const ansDisplay = document.querySelector("#ans-display");
+const buttons = document.querySelectorAll("button");
 
 function append(input) {
     let display = ansDisplay.value;
@@ -37,4 +38,13 @@ function calc() {
         ansDisplay.value = "ERROR"
     }
 }
+
+document.addEventListener("keydown", (event) => {
+    for (let button of buttons) {
+        if (button.classList.contains(event.key)) {
+            button.click();
+        }
+    }
+})
+
 
