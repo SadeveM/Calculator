@@ -10,6 +10,7 @@ function append(input) {
         ansDisplay.value = "";
     }
     ansDisplay.value += input;
+    ansDisplay.scrollLeft = ansDisplay.scrollWidth;
 }
 
 function clearDis() {
@@ -49,7 +50,8 @@ function calc() {
     } catch(error) {
         ansDisplay.value = "ERROR"
     }
-
+    
+    eqDisplay.scrollLeft = eqDisplay.scrollWidth;
     backspaceBtn.onclick = delAnsDis;
 }
 
@@ -62,6 +64,8 @@ backspaceBtn.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
     for (let button of buttons) {
         button.blur();
+        ansDisplay.scrollLeft = ansDisplay.scrollWidth;
+        eqDisplay.scrollLeft = eqDisplay.scrollWidth;
         if (button.classList.contains(event.key)) {
             button.click();
         }

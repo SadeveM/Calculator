@@ -29,6 +29,7 @@ body {
 .display {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
 
     width: 90%;
     padding: 10px;
@@ -51,6 +52,8 @@ input::placeholder {
 
 #ans-display {
     font-size: 4rem;
+    overflow: hidden;
+    direction: ltr;
 }
 
 #eq-display {
