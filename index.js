@@ -2,33 +2,38 @@ const eqDisplay = document.querySelector("#eq-display")
 const ansDisplay = document.querySelector("#ans-display");
 const buttons = document.querySelectorAll("button");
 const backspaceBtn = document.querySelector(".Backspace")
+let display = "";
 
 function append(input) {
     backspaceBtn.onclick = delChar;
-    let display = ansDisplay.value;
+    display += input;
     if (display == "ERROR" || display == "Infinity"){
         ansDisplay.value = "";
     }
-    ansDisplay.value += input;
+    ansDisplay.value = display.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,");
     ansDisplay.scrollLeft = ansDisplay.scrollWidth;
+
 }
 
 function clearDis() {
     ansDisplay.value = "";
     eqDisplay.value = "";
+    display = ""
 }
 
 function delChar() {
-    let display = ansDisplay.value;
     if (display == "ERROR" || display == "Infinity"){
-        ansDisplay.value = "";
+        display = "";
+        ansDisplay.value = display;
     } else {
-        ansDisplay.value = display.slice(0, -1);
+        display = display.slice(0, -1);
+        ansDisplay.value = display;
     }
 }
 
 function delAnsDis() {
     ansDisplay.value = "";
+    display = "";
     backspaceBtn.onclick = delEqDis;
 }
 
@@ -38,15 +43,16 @@ function delEqDis() {
 }
 
 function calc() {
-    let display = ansDisplay.value;
-    let newDisplay = display.replace("÷", "/").replace("×", "*");
+    let newDisplay = display.replace("÷", "/").replace("×", "*").replace(",", "");
+    console.log(newDisplay)
     if (display == "") {
         return;
     }
 
     try {
-        ansDisplay.value = eval(newDisplay)
-        eqDisplay.value = display
+        display = eval(newDisplay)
+        eqDisplay.value = ansDisplay.value;
+        ansDisplay.value = display;
     } catch(error) {
         ansDisplay.value = "ERROR"
     }
