@@ -10,7 +10,13 @@ function append(input) {
     if (display == "ERROR" || display == "Infinity"){
         ansDisplay.value = "";
     }
-    ansDisplay.value = display.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,");
+    if (display.includes(".")){
+        let number = display.split(".");
+        console.log(number)
+        ansDisplay.value = number[0].replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,") + "." + number[1];
+    } else {
+        ansDisplay.value = display.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,");
+    }
     ansDisplay.scrollLeft = ansDisplay.scrollWidth;
 
 }
@@ -51,7 +57,12 @@ function calc() {
     try {
         display = eval(newDisplay)
         eqDisplay.value = ansDisplay.value;
-        ansDisplay.value = display.toString().replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,");
+        if (display.toString().includes(".")) {
+            let number = display.toString().split(".");
+            ansDisplay.value = number[0].replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,") + "." + number[1];
+        } else {
+            ansDisplay.value = display.toString().replace(/\d{1,3}(?=(\d{3})+(?!\d))/g,"$&,");
+        }
     } catch(error) {
         ansDisplay.value = "ERROR"
     }
